@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="author" href="humans.txt">
+  </head>
+  <body>
+
+<!-- 6. Add an event handler to the input field that checks if the user pressed the enter key, and if that happens, perform the conversion. -->
+
+
+    <h2>Convert Your Temperatures</h2>
+<!-- 1. In the HTML, have one input field where someone can enter in a temperature. -->
+    <form id="myForm">
+      <label for="tempInput">Enter your Start Value: </label>
+      <input type="number" name="temperature" id="tempInput">
+  <!-- 2. Create a radio button group where Celsius or Fahrenheit can be selected as the scale that the number should be converted to. -->
+      <input type="radio" name="degreeType" id="degCelcius"><label>&deg; Celcius</label>
+      <input type="radio" name="degreeType" id="degFahrenheit"><label>&deg; Fahrenheit</label>
+  <!-- 3. Create a block level element that will hold the text of the converted temperature. -->
+      <h4><span id="conversionResult"></span> 
+      </h4>
+      <button id="getConvert">Convert!</button>
+      <button id="clearForm">Reset Form</button>
+    </form>
+<!-- 4. Create a button that, when clicked, displays the converted temperature. -->
+<!-- 5. Create another button that, when clicked, clears any text in the input field. -->
+    <script src="js/converter.js"></script>
+  </body>
+</html>
