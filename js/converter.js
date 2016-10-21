@@ -11,7 +11,6 @@ var unitWanted;
 var convertBtn = document.getElementById("getConvert");
 var clearBtn = document.getElementById("clearForm");
 
-
 function toCelsius (temperature) {
   return ((parseInt(temperature)-32) * 5 / 9);
 };
@@ -38,11 +37,17 @@ function addResults(displayValue){
   document.getElementById("conversionResult").innerHTML = displayValue;
 };
 
+clearBtn.addEventListener("click", function(){
+  event.preventDefault();
+  document.getElementById("myForm").reset();
+  formattedTemp = '';
+  finalInsert = '';
+  addResults('');
+});
+
 // When the text field is interacted with, init the value to a variable.
 document.getElementById("tempInput").addEventListener("keyup", function(){
     userInput = document.getElementById("tempInput").value;
-    console.log(userInput);
-
 });
 
 // When the radios are pressed, assign the value of the input to a variable. do this for each button:
@@ -51,7 +56,6 @@ document.getElementById("degCelcius").addEventListener("click", function(){
   tempC = "null";
   formattedTemp = tempF;
   unitWanted = "F";
-  console.log("from C to F: ", tempF);
 });
 
 document.getElementById("degFahrenheit").addEventListener("click", function(){
@@ -59,11 +63,11 @@ document.getElementById("degFahrenheit").addEventListener("click", function(){
   tempF = "null";
   formattedTemp = tempC;
   unitWanted = "C";
-  console.log("from F to C", tempC);
 });
 
 // Assign a function to be executed when the button is clicked
 convertBtn.addEventListener("click", function(){
+  event.preventDefault();
   tempStyling();
   finalInsert += formattedTemp + "&deg;" + unitWanted + "</p>";
   addResults(finalInsert);
@@ -78,17 +82,3 @@ document.addEventListener("keydown", function(){
     addResults(finalInsert);
   };
 });
-
-
-clearBtn.addEventListener("click", function(){
-  document.getElementById("myForm").reset();
-  formattedTemp = '';
-  finalInsert = '';
-  addResults('');
-});
-
-// This function should determine which conversion should happen based on which radio button is selected.
-// function determineConverter (clickEvent) {
-  // console.log("ConvertPressed", clickEvent);
-// }
-
